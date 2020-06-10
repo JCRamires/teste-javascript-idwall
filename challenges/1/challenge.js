@@ -9,6 +9,6 @@
  *
  */
 
-const sumArguments = arr => {}
+const sumArguments = (...args) => args.reduce((prevValue, currentValue) => prevValue + currentValue)
 
 module.exports = sumArguments
