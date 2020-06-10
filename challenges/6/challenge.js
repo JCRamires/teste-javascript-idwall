@@ -26,6 +26,23 @@
  * }
  */
 
-const extractSize = htmlTemplate => {}
+const extractSize = (htmlTemplate) => {
+  const regexExtraction = /(?:(height|width):\s)(\d+)/g
+
+  const firstMatch = regexExtraction.exec(htmlTemplate)
+  const secondMatch = regexExtraction.exec(htmlTemplate)
+
+  const returnObject = { width: 0, height: 0 }
+
+  try {
+    returnObject[firstMatch[1]] = parseInt(firstMatch[2])
+  } catch {}
+
+  try {
+    returnObject[secondMatch[1]] = parseInt(secondMatch[2])
+  } catch {}
+
+  return returnObject
+}
 
 module.exports = extractSize
